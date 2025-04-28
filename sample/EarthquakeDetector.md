@@ -1,10 +1,11 @@
 ```cpp
 #include <M5Stack.h>
-#include "MPU6886.h"
 
 float accX, accY, accZ;
 float prevX, prevY, prevZ;
-float threshold = 0.5; // 地震検知しきい値 (G単位)
+float threshold = 3.0; // 地震検知しきい値 (G単位)
+
+void alertEarthquake();
 
 void setup() {
   M5.begin();
@@ -22,8 +23,9 @@ void loop() {
   float deltaZ = accZ - prevZ;
   float delta = sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
 
-  if (delta > threshold) {
-    alertEarthquake();
+  if(delta > threshold) {
+    M5.Lcd.println("delta: " + String(delta));
+   alertEarthquake();
   }
 
   // 現在値を次回のため保存
