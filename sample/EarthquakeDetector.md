@@ -15,6 +15,7 @@ void setup() {
 }
 
 void loop() {
+  M5.update();
   M5.IMU.getAccelData(&accX, &accY, &accZ);
 
   // 直前との差を計算
@@ -25,7 +26,7 @@ void loop() {
 
   if(delta > threshold) {
     M5.Lcd.println("delta: " + String(delta));
-   alertEarthquake();
+    alertEarthquake();
   }
 
   // 現在値を次回のため保存
