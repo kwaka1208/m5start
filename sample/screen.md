@@ -1,3 +1,6 @@
+## 画面表示 + ボタン操作
+
+```cpp
 #include <M5Stack.h>
 
 int cnt = 0; // カウント値
@@ -34,3 +37,4 @@ void loop() {
   delay(30);
   M5.Lcd.drawString("CNT=" + String(cnt), 0, 40); // カウント値を表示
 } 
+```
