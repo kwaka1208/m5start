@@ -1,8 +1,16 @@
+# Wi-Fiに接続してwebサイトにアクセスする
+
+1. srcフォルダのmain.cppをコピーして別のファイル名に変更する
+2. 新しくmain.cppを作成し、以下の内容を入力する
+3. includeフォルダのenv.h.tmpをenv.hにリネームする
+4. env.hの"your-ssid"と"your-password"をWi-FiのSSIDとパスワードに変更する
+5. M5Stackへ転送し、実行して表示されたメッセージを教えてください。
+
 ```cpp
 #include <M5Stack.h>
 #include <WiFi.h>
 #include <HTTPClient.h>
-#include "settings.h"
+#include "env.h"
 
 void setup() {
   M5.begin();
