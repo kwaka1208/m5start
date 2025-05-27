@@ -14,6 +14,7 @@
 
 void setup() {
   M5.begin();
+  M5.Lcd.setTextSize(3);
   WiFi.begin(SSID, PASS);
   M5.Lcd.println("Connecting to M5StackNet...");
 
