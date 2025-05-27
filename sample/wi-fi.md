@@ -14,9 +14,9 @@
 
 void setup() {
   M5.begin();
-  M5.Lcd.setTextSize(2.5);
   WiFi.begin(SSID, PASS);
-  M5.Lcd.println("Connecting to M5StackNet...");
+  M5.Lcd.setTextSize(2.5);
+  M5.Lcd.println("Connecting to internet...");
 
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
@@ -31,6 +31,8 @@ void setup() {
   HTTPClient http;
   http.begin("https://lab.crssrds.jp/test/data.html"); // サーバー側のIP
   int httpCode = http.GET();
+  M5.Lcd.print("http status: ");
+  M5.Lcd.println(httpCode);
   if (httpCode > 0) {
     String payload = http.getString();
     M5.Lcd.println("Response:");
